@@ -1,0 +1,16 @@
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\bin\Release\EmailWPF.exe.config
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\bin\Release\EmailWPF.exe
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\bin\Release\EmailWPF.pdb
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF.csprojAssemblyReference.cache
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\DialogWindow.g.cs
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\MainWindow.g.cs
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\App.g.cs
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF_MarkupCompile.cache
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF_MarkupCompile.lref
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\DialogWindow.baml
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\MainWindow.baml
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF.g.resources
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF.Properties.Resources.resources
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF.csproj.GenerateResource.cache
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF.exe
+C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\obj\Release\EmailWPF.pdb

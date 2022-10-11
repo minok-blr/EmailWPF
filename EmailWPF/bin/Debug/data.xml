@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataStruct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Mailbox1>
+    <Title />
+    <Inbox>
+      <Mails>
+        <Sender>Alex Veljic</Sender>
+        <Subject>Project info</Subject>
+        <Content>Build started! PRoject WPF email client status update</Content>
+        <Recipients>Jaz</Recipients>
+        <CopyRecipients>Mhm</CopyRecipients>
+        <Attachments>
+          <anyType xsi:type="xsd:string">picture.png</anyType>
+          <anyType xsi:type="xsd:string">audio.mp3</anyType>
+        </Attachments>
+      </Mails>
+      <Mails>
+        <Sender>Alex Veljic</Sender>
+        <Subject>Breaking news!</Subject>
+        <Content>Buildings collapsing all over the world! The new material being used is proved to be very unstable, click this link to find out more!</Content>
+        <Recipients>Jaz</Recipients>
+        <CopyRecipients>Mhm</CopyRecipients>
+      </Mails>
+    </Inbox>
+    <Sent />
+    <Deleted />
+  </Mailbox1>
+  <Mailbox2>
+    <Title />
+    <Inbox>
+      <Mails>
+        <Sender>Mirko Veljic</Sender>
+        <Subject>BOSS!</Subject>
+        <Content>Hey boss, I heard your boss was talking to his boss, because he had to report to his boss, and then the boss of the boss that the boss was talking to walked in and.. hey boss?</Content>
+        <Recipients>Jaz</Recipients>
+        <CopyRecipients>Mhm</CopyRecipients>
+      </Mails>
+      <Mails>
+        <Sender>Perun Jaroslavljevic</Sender>
+        <Subject>Humor.</Subject>
+        <Content>Do you think this is funny?</Content>
+        <Recipients>Jaz</Recipients>
+        <CopyRecipients>Mhm</CopyRecipients>
+      </Mails>
+    </Inbox>
+    <Sent />
+    <Deleted />
+  </Mailbox2>
+</DataStruct>

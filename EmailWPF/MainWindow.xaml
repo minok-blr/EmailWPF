@@ -1,0 +1,309 @@
+﻿<Window x:Class="EmailWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmailWPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        MinWidth="535"
+        Title="MainWindow" Height="686" Width="1070" ResizeMode="CanResizeWithGrip">
+
+
+    <Grid Name="grd">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="185"></ColumnDefinition>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="165*"></RowDefinition>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.ColumnSpan="3" Background="#0078d7">
+            <MenuItem Header="File" Margin="0,5,0,0" Foreground="AntiqueWhite">
+                <MenuItem Header="New Message"  
+                          Foreground="Black" 
+                          Click="RWInNewDialogWindow">
+                </MenuItem>
+                <MenuItem Header="Exit"  
+                          Foreground="Black">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" Margin="0,5,0,0" Foreground="AntiqueWhite">
+            </MenuItem>
+            <MenuItem Header="View" Margin="0,5,0,0" Foreground="AntiqueWhite">
+            </MenuItem>
+            <MenuItem Header="Window" Margin="0,5,0,0" Foreground="AntiqueWhite">
+            </MenuItem>
+            <MenuItem Header="Xml" Margin="0,5,0,0" Foreground="AntiqueWhite">
+                <MenuItem Header="Import"  
+                          Foreground="Black" 
+                          Click="XMLImport">
+                </MenuItem>
+                <MenuItem Header="Export"  
+                          Foreground="Black"
+                          Click="XMLExport">
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help" Margin="0,5,0,0" Foreground="AntiqueWhite">
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Right" Margin="0, 0, 0, 0">
+            <TextBox Grid.Row="0" Grid.Column="2" Width="170" Margin="2, 3, 0, 3" ></TextBox>
+            <Button x:Name="SearchButton" Content="Search" Margin="-1, 3, 20, 3"  Background="White" FontStyle="Italic" FontSize="12"></Button>
+        </StackPanel>
+
+        <TreeView Name="Mailbox"
+                  FontSize="23"
+                  Grid.Row="1" 
+                  Grid.Column="0" 
+                  Background="SkyBlue" 
+                  Margin="0" 
+                  Padding="5,20,10,10">
+            
+            <TreeViewItem Name="Mailbox1"
+                          Header="Mailbox1"
+                          >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20"
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\received.png" />
+                    <TreeViewItem Name="inbox1" 
+                                  Header="Inbox" 
+                                  
+                                  MouseLeftButtonUp="RefreshInbox1"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <Image Width="20" 
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\sent.png"/>
+                    <TreeViewItem Name="sent1" 
+                                  Header="Sent"
+                                  MouseLeftButtonUp="RefreshSent1"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" 
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\draft.png" />
+                    <TreeViewItem Header="Draft"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\deleted.png" />
+                    <TreeViewItem Name="deleted1" Header="Deleted" MouseLeftButtonUp="RefreshDeleted1"/>
+                </StackPanel>
+
+            </TreeViewItem>
+
+            <TreeViewItem Name ="Mailbox2" 
+                          Header="Mailbox2">
+                
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" 
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\received.png" />
+                    <TreeViewItem Name="inbox2" 
+                                  Header="Inbox" 
+                                  MouseLeftButtonUp="RefreshInbox2"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" 
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\sent.png" />
+                    <TreeViewItem Name="sent2" 
+                                  Header="Sent"
+                                  MouseLeftButtonUp="RefreshSent2"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" 
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\draft.png" />
+                    <TreeViewItem Header="Draft"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" 
+                           Height="20" 
+                           Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\draft.png"/>
+                    <TreeViewItem Name="deleted2" 
+                                  Header="Deleted" 
+                                  MouseLeftButtonUp="RefreshDeleted2"/>
+                </StackPanel>
+            
+            </TreeViewItem>
+        
+        </TreeView>
+
+        <ListView Name="MessageList" Grid.Row="1" Grid.Column="1"
+                  Background="LightBlue" MouseLeftButtonUp="SelectMailFromList"
+                  MouseDoubleClick="ShowMailDW">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ShowGridLines="False" Name="MsgGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="27"></RowDefinition>
+                            <RowDefinition Height="27"></RowDefinition>
+                            <RowDefinition Height="50"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="125"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Name="TBSender"
+                                   Grid.Row="0" 
+                                   Grid.Column="0" 
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   FontSize="20"
+                                   FontWeight="Normal"
+                                   Text="{Binding Sender}">
+                        </TextBlock>
+                        <TextBlock Grid.Row="0" 
+                                   Grid.Column="2"
+                                   FontSize="16"
+                                   FontWeight="Light"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right" 
+                                   Text="{Binding Date}">
+                        </TextBlock>
+                        <TextBlock Name="TBSub"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   FontSize="18"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding Subject}">
+                        </TextBlock>
+                        <TextBlock Grid.Row="2"
+                                   Grid.ColumnSpan="2"
+                                   FontWeight="UltraLight"
+                                   FontSize="14"
+                                   Text="{Binding Content}"
+                                   Padding="0,2,2,2">
+                        </TextBlock>
+                    </Grid>
+                    
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsRead}" Value="True">
+                            <Setter TargetName="MsgGrid" Property="Background" Value="LightBlue"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsRead}" Value="False">
+                            <Setter TargetName="TBSender" Property="FontWeight" Value="Bold"></Setter>
+                            <Setter TargetName="TBSub" Property="FontWeight" Value="Bold"></Setter>
+                            <Setter TargetName="TBSub" Property="Foreground" Value="SlateGray"></Setter>
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <DockPanel Name="DockController"
+                   Grid.Column="2"
+                   Grid.Row="1"
+                   LastChildFill="False"
+                   Background="LightBlue">
+
+            <TextBlock Name="MailContent"
+                       Text="Email content:THIS IS A SAMPLE MESSAGE, PLEASE KEEP DISTANCE!THIS IS A SAMPLE MESSAGE, PLEASE KEEP DISTANCE.THIS IS A SAMPLE MESSAGE, PLEASE KEEP DISTANCE!THIS IS A SAMPLE MESSAGE, PLEASE KEEP DISTANCE" 
+                       TextWrapping="Wrap"
+                       DockPanel.Dock="Top"
+                       Padding="15"
+                       Margin="10"
+                       Background="Azure">
+            </TextBlock>
+
+            <ToolBarTray Name="toolbarButtons"
+                         DockPanel.Dock="Top" 
+                         HorizontalAlignment="Right">
+                
+                <ToolBar Background="LightGray">
+
+                    <StackPanel Orientation="Horizontal" Background="LightGray" Margin="5">
+                        <Button Content="Reply" 
+                                BorderBrush="Black" 
+                                BorderThickness="1"
+                                Width="60"
+                                Height="35"
+                                Click="ReplyFunc"
+                                Name="ReplyB"/>
+                        <Image Width="20"
+                               Height="20" 
+                               Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\reply.png" />
+                    </StackPanel>
+
+
+
+                    <StackPanel Orientation="Horizontal" Background="LightGray" Margin="5">
+                        <Button Content="Reply all" 
+                                BorderBrush="Black" 
+                                BorderThickness="1"
+                                Width="70"
+                                Height="35"
+                                Click="ReplyFunc"
+                                Name="ReplyAllB"/>
+                        <Image Width="20"
+                               Height="20" 
+                               Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\replyall.png" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Background="LightGray" Margin="5">
+                        <Button Content="Forward" 
+                            BorderBrush="Black" 
+                            BorderThickness="1"
+                            Width="70"
+                            Height="35"
+                            Name="ForwardB"
+                            Click="ReplyFunc"/>
+                        <Image Width="20"
+                               Height="20" 
+                               Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\forward.png" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Background="LightGray" Margin="5">
+                        <Button Name ="DeleteButton" 
+                                Content="Delete" 
+                                Click="DeleteMsgButton" 
+                                BorderBrush="Black" 
+                                BorderThickness="1"
+                                Width="70"
+                                Height="35"/>
+                        <Image Width="20"
+                               Height="20" 
+                               Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\delete.png" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Background="LightGray" Margin="5">
+                        <Button Content="New message" 
+                            BorderBrush="Black" 
+                            BorderThickness="1"
+                            Width="110"
+                            Height="35"
+                            Click="RWInNewDialogWindow"/>
+                        <Image Width="20"
+                               Height="20" 
+                               Source="C:\Users\hp_omen\source\repos\EmailWPF\EmailWPF\newmessage.png" />
+                    </StackPanel>
+
+                </ToolBar>
+            </ToolBarTray>
+
+            <Button Content="Close" DockPanel.Dock="Bottom" Click="CloseButton"></Button>
+        </DockPanel>
+
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="3">
+            <StatusBarItem Content="Empty" Margin="3,0,50,0"></StatusBarItem>
+            <Separator/>
+            <StatusBarItem Content="None"></StatusBarItem>
+        </StatusBar>
+
+    </Grid>
+</Window>

@@ -1,0 +1,52 @@
+﻿<Window x:Class="EmailWPF.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmailWPF"
+        mc:Ignorable="d"
+        Title="DialogWindow" Height="800" Width="1098" Background="LightBlue">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!-- <TextBlock Text="textBlock" Name="textname" HorizontalAlignment="Center" Margin="515,0" Width="60"/></TextBlock>
+        <TextBox Name="textbox" VerticalAlignment="Center" Grid.Row="1" TextChanged="textbox_TextChanged" Height="22" Margin="0,23,0,39"></TextBox>
+        
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Height="46" Margin="461,520,459,152" Width="170">
+            <Button Content="Okay" Margin="5,5,5,5" Width="75" Height="35" IsDefault="True" Click="Button_Click"></Button>
+            <Button Content="Cancel" Margin="5,5,5,5" Width="75" Height="35" IsCancel="True"></Button>
+        </StackPanel>
+        
+        -->
+        <Label Content="Recipient" HorizontalAlignment="Left" Margin="12,6,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label Content="Content:" HorizontalAlignment="Left" Margin="12,96,0,0" VerticalAlignment="Top" Width="71"/>
+        <Label Content="Subject" HorizontalAlignment="Left" Margin="12,66,0,0" VerticalAlignment="Top" Width="63"/>
+        <Label Content="Copy recipient" HorizontalAlignment="Left" Margin="12,36,0,0" VerticalAlignment="Top" Width="114"/>
+        <ComboBox Background="LightGray" Name="mailboxBox" HorizontalAlignment="Left" Margin="637,158,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="sender1" Tag="sender1" Content="sender1"></ComboBoxItem>
+            <ComboBoxItem Name="sender2" Tag="sender2" Content="sender2"></ComboBoxItem>
+        </ComboBox>
+        <TextBox Name="Content" Background="LightGray" HorizontalAlignment="Left" Height="51" Margin="12,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="498" BorderThickness="1"/>
+        <TextBox Name="Subject" Background="LightGray" HorizontalAlignment="Left" Height="23" Margin="146,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+        <TextBox Name="CopyRec" Background="LightGray" HorizontalAlignment="Left" Height="23" Margin="146,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+        <TextBox Name="RecipientBox" Background="LightGray" HorizontalAlignment="Left" Height="23" Margin="146,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
+        <ListBox Name="AttachNames" Background="LightGray" HorizontalAlignment="Left" Height="487" Margin="576,243,0,0" VerticalAlignment="Top" Width="504" BorderThickness="1"/>
+        <Label Content="Attachments" HorizontalAlignment="Left" Margin="784,213,0,0" VerticalAlignment="Top"/>
+        <Button Name="SendButton" Content="Send" HorizontalAlignment="Left" Margin="200,735,0,0" VerticalAlignment="Top" Width="75"
+                Click="SendMsgButton"/>
+        <Button Name="AttachButton" Click="AttachmentButton" Content="Add attachment" HorizontalAlignment="Left" Margin="730,735,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label Content="Sender" HorizontalAlignment="Left" Margin="576,157,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Text editor" HorizontalAlignment="Left" Height="501" Margin="10,229,0,0" VerticalAlignment="Top" Width="498">
+            <local:TextEditor Margin="0,10,0,0"></local:TextEditor>
+        </GroupBox>
+
+    </Grid>
+</Window>
